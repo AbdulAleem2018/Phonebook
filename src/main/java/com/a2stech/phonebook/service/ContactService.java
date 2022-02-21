@@ -7,7 +7,7 @@ public interface ContactService {
 	
 	public String saveContact(ContactForm contactDetails);
 	
-	public ContactForm getContactById(int contactId);
+	public ContactForm getContactById(Integer contactId);
 	
 	public List<ContactForm> viewAllContacts();
 	

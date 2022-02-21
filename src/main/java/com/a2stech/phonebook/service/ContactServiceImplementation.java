@@ -25,19 +25,19 @@ public class ContactServiceImplementation implements ContactService {
 
 	@Override
 	public String saveContact(ContactForm Contact) {
-		Contact contact=new Contact();
-		BeanUtils.copyProperties(Contact, contact);
-		contact.setActiveSW("Y");
-		contactRepository.save(contact);
-		System.out.println("ID :"+contact.getId());
-		if(contact.getId()!=0)
+		Contact contact_entity=new Contact();
+		BeanUtils.copyProperties(Contact, contact_entity);
+		contact_entity.setActiveSW("Y");
+		contact_entity=contactRepository.save(contact_entity);
+		System.out.println("ID :"+contact_entity.getId());
+		if(contact_entity.getId()!=0)
 			return "Contact is saved SUCCESSFULLY !!!";
 		else
 			return "Contact is FAILED to Save.";
 	}
 
 	@Override
-	public ContactForm getContactById(int contactId) {
+	public ContactForm getContactById(Integer contactId) {
 		ContactForm Contact=new ContactForm();
 		Optional<Contact> findContactId=contactRepository.findById(contactId);
 		

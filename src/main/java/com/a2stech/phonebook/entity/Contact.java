@@ -28,16 +28,16 @@ public class Contact {
 	  @GeneratedValue(generator = "abc", strategy = GenerationType.SEQUENCE)*/
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="ID")
-	private int id;
+	private Integer id;
 	
 	@Column(name="NAME")
 	private String name;
 	
 	@Column(name="NUMBER")
-	private String contactNumber;
+	private String number;
 	
 	@Column(name="EMAIL")
-	private String emailId;
+	private String email;
 	
 	@Column(name="ACTIVE_SW")
 	private String activeSW;
@@ -48,7 +48,7 @@ public class Contact {
 	
 	@Column(name="UPDATED_DATE")
 	@UpdateTimestamp
-	private LocalDateTime updatedDate;
+	private LocalDate updatedDate;
 	
 	@Transient
 	private LocalDateTime ignoreField;

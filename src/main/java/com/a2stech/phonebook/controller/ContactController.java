@@ -37,7 +37,7 @@ public class ContactController {
 	@Autowired
 	ContactService contactService;
 	
-	@PostMapping(value="/", produces = {"application/json"})
+	@PostMapping(value="/savecontact", produces = {"application/json"})
 	public ResponseEntity<ResponseMessage> saveContactInfo(@RequestBody ContactForm contactForm) {
 		System.out.println("Request :"+contactForm);
 		String receivedMsg= contactService.saveContact(contactForm);
@@ -58,8 +58,8 @@ public class ContactController {
 		return contactService.viewAllContacts();
 	}
 
-	@GetMapping(value="/edit")
-	public ContactForm editContact(@RequestParam("contactId") int editContactId) {
+	@GetMapping(value="/edit/{contactId}")
+	public ContactForm editContact(@PathVariable("contactId") Integer editContactId) {
 		return contactService.getContactById(editContactId);
 	}
 
